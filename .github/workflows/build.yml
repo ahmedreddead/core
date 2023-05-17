@@ -1,0 +1,17 @@
+name: "Build"
+on: [push]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+      - name: Build
+        uses: home-assistant/builder@master
+        with:
+          args: |
+            --all \
+            --repository https://github.com/ahmedreddead/core/ \
+            --target /path/to/build \
+            --docker-hub user-name-or-space-name
